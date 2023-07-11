@@ -37,11 +37,11 @@ const renderClient = params => {
 }
 
 const statusObj = {
-  1: { title: 'current', color: 'primary' },
-  2: { title: 'professional', color: 'success' },
-  3: { title: 'rejected', color: 'error' },
-  4: { title: 'resigned', color: 'warning' },
-  5: { title: 'applied', color: 'info' }
+  1: { title: 'Payment Rejected', color: 'primary' },
+  2: { title: 'Wrong Information', color: 'warning' },
+  3: { title: 'Payment Rejected', color: 'primary' },
+  4: { title: 'Wrong Information', color: 'warning' },
+  5: { title: 'Payment Rejected', color: 'primary' }
 }
 
 const columns = [
@@ -79,28 +79,28 @@ const columns = [
       </Typography>
     )
   },
-  {
-    flex: 0.175,
-    minWidth: 110,
-    field: 'salary',
-    headerName: 'Salary',
-    renderCell: params => (
-      <Typography variant='body2' sx={{ color: 'text.primary' }}>
-        {params.row.salary}
-      </Typography>
-    )
-  },
-  {
-    flex: 0.125,
-    field: 'age',
-    minWidth: 80,
-    headerName: 'Age',
-    renderCell: params => (
-      <Typography variant='body2' sx={{ color: 'text.primary' }}>
-        {params.row.age}
-      </Typography>
-    )
-  },
+  // {
+  //   flex: 0.175,
+  //   minWidth: 110,
+  //   field: 'salary',
+  //   headerName: 'Salary',
+  //   renderCell: params => (
+  //     <Typography variant='body2' sx={{ color: 'text.primary' }}>
+  //       {params.row.salary}
+  //     </Typography>
+  //   )
+  // },
+  // {
+  //   flex: 0.125,
+  //   field: 'age',
+  //   minWidth: 80,
+  //   headerName: 'Age',
+  //   renderCell: params => (
+  //     <Typography variant='body2' sx={{ color: 'text.primary' }}>
+  //       {params.row.age}
+  //     </Typography>
+  //   )
+  // },
   {
     flex: 0.175,
     minWidth: 140,
@@ -175,14 +175,14 @@ const TableServerSide = () => {
 
   return (
     <Card>
-      <CardHeader title='Server Side' />
+      <CardHeader title='Rejected Profiles' />
       <DataGrid
         autoHeight
         pagination
         rows={rows}
         rowCount={total}
         columns={columns}
-        checkboxSelection
+        // checkboxSelection
         pageSize={pageSize}
         sortingMode='server'
         paginationMode='server'

@@ -148,11 +148,9 @@ const RowOptions = ({ id }) => {
           <Icon icon='mdi:delete-outline' fontSize={20} />
           Delete
         </MenuItem>
-        <MenuItem>
-          <Button color='error' variant='outlined' onClick={() => setSuspendDialogOpen(true)}>
-            Suspend
-          </Button>
-        </MenuItem>
+
+
+
       </Menu>
     </>
   )
@@ -193,22 +191,7 @@ const columns = [
       )
     }
   },
-  // {
-  //   flex: 0.15,
-  //   field: 'role',
-  //   minWidth: 150,
-  //   headerName: 'Role',
-  //   renderCell: ({ row }) => {
-  //     return (
-  //       <Box sx={{ display: 'flex', alignItems: 'center', '& svg': { mr: 3, color: userRoleObj[row.role].color } }}>
-  //         <Icon icon={userRoleObj[row.role].icon} fontSize={20} />
-  //         <Typography noWrap sx={{ color: 'text.secondary', textTransform: 'capitalize' }}>
-  //           {row.role}
-  //         </Typography>
-  //       </Box>
-  //     )
-  //   }
-  // },
+
 
   {
     flex: 0.15,
@@ -292,21 +275,25 @@ const UserList = ({ apiData }) => {
 
   return (
     <Grid container spacing={6}>
-      {/*<Grid item xs={12}>*/}
-      {/*  */}
-      {/*  */}
+      <Grid item xs={12}>
 
-      {/*</Grid>*/}
+
+
+      </Grid>
       <Grid item xs={12}>
         <Card>
-           <CardContent>
+          <CardContent>
             <Grid container spacing={12} className={"flex w-full space-evenly"}>
               <Grid item sm={4} xs={12}>
                 <span class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-z40hnk-MuiTypography-root">Subscribers</span>
-              </Grid>
-              </Grid>
 
-              <Grid item sm={4} xs={12} >
+
+              </Grid>
+              <Grid item sm={4} xs={12}>
+
+
+              </Grid>
+              <Grid item sm={4} xs={12}>
                 <FormControl fullWidth>
                   <InputLabel id='plan-select'>Select Plan</InputLabel>
                   <Select
@@ -328,8 +315,7 @@ const UserList = ({ apiData }) => {
                 </FormControl>
               </Grid>
 
-
-            {/*</Grid>*/}
+            </Grid>
           </CardContent>
           <Divider />
           <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />

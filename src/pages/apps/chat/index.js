@@ -47,6 +47,7 @@ import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
 import TableServerSide from "../../../views/table/data-grid/TableServerSide";
 import TableServerSidecopy from "../../../views/table/data-grid/TableServerSidecopy";
 import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
 // ** Vars
 const userRoleObj = {
@@ -148,11 +149,17 @@ const RowOptions = ({ id }) => {
           <Icon icon='mdi:delete-outline' fontSize={20} />
           Delete
         </MenuItem>
-        <MenuItem>
-          <Button color='error' variant='outlined' onClick={() => setSuspendDialogOpen(true)}>
-            Suspend
-          </Button>
-        </MenuItem>
+        {/*<MenuItem>*/}
+          {/*<CardActions sx={{ display: 'flex', justifyContent: 'center' }}>*/}
+          {/*  /!*  <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>*!/*/}
+          {/*  /!*    Edit*!/*/}
+          {/*  /!*  </Button>*!/*/}
+          {/*  <Button color='error' variant='outlined' onClick={() => setSuspendDialogOpen(true)}>*/}
+          {/*    Suspend*/}
+          {/*  </Button>*/}
+          {/*</CardActions>*/}
+
+        {/*</MenuItem>*/}
       </Menu>
     </>
   )

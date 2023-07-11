@@ -177,34 +177,12 @@ const UserViewLeft = () => {
                 </Box>
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
-                    Billing Email:
+                    Email:
                   </Typography>
                   <Typography variant='body2'>{data.email}</Typography>
                 </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
-                    Status:
-                  </Typography>
-                  <CustomChip
-                    skin='light'
-                    size='small'
-                    label={data.status}
-                    color={statusColors[data.status]}
-                    sx={{
-                      height: 20,
-                      fontWeight: 500,
-                      fontSize: '0.75rem',
-                      borderRadius: '5px',
-                      textTransform: 'capitalize'
-                    }}
-                  />
-                </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Role:</Typography>
-                  <Typography variant='body2' sx={{ textTransform: 'capitalize' }}>
-                    {data.role}
-                  </Typography>
-                </Box>
+
+
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Tax ID:</Typography>
                   <Typography variant='body2'>Tax-8894</Typography>
@@ -225,9 +203,9 @@ const UserViewLeft = () => {
             </CardContent>
 
             <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>
-                Edit
-              </Button>
+            {/*  <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>*/}
+            {/*    Edit*/}
+            {/*  </Button>*/}
               <Button color='error' variant='outlined' onClick={() => setSuspendDialogOpen(true)}>
                 Suspend
               </Button>
@@ -424,9 +402,9 @@ const UserViewLeft = () => {
               <Typography variant='caption' sx={{ mt: 1.5, mb: 6 }}>
                 4 days remaining
               </Typography>
-              <Button variant='contained' sx={{ width: '100%' }} onClick={handlePlansClickOpen}>
-                Upgrade Plan
-              </Button>
+              {/*<Button variant='contained' sx={{ width: '100%' }} onClick={handlePlansClickOpen}>*/}
+              {/*  Upgrade Plan*/}
+              {/*</Button>*/}
             </CardContent>
 
             <Dialog
