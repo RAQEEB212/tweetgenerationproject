@@ -6,13 +6,13 @@ import Typography from '@mui/material/Typography'
 import CardSnippet from 'src/@core/components/card-snippet'
 
 // ** Demo Components Imports
-import MenuBasic from 'src/views/components/menu/MenuBasic'
-import MenuContext from 'src/views/components/menu/MenuContext'
-import MenuSelected from 'src/views/components/menu/MenuSelected'
-import MenuMaxHeight from 'src/views/components/menu/MenuMaxHeight'
-import MenuCustomized from 'src/views/components/menu/MenuCustomized'
-import MenuTransition from 'src/views/components/menu/MenuTransition'
-import MenuComposition from 'src/views/components/menu/MenuComposition'
+// import MenuBasic from 'src/views/components/menu/MenuBasic'
+// import MenuContext from 'src/views/components/menu/MenuContext'
+// import MenuSelected from 'src/views/components/menu/MenuSelected'
+// import MenuMaxHeight from 'src/views/components/menu/MenuMaxHeight'
+// import MenuCustomized from 'src/views/components/menu/MenuCustomized'
+// import MenuTransition from 'src/views/components/menu/MenuTransition'
+// import MenuComposition from 'src/views/components/menu/MenuComposition'
 
 // ** Source code imports
 import * as source from 'src/views/components/menu/MenuSourceCode'
@@ -125,4 +125,4 @@ const Menus = () => {
   )
 }
 
-export default Menus
+// export default Menus

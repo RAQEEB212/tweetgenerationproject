@@ -66,4 +66,4 @@ const CardCongratulationsDaisy = () => {
   )
 }
 
-export default CardCongratulationsDaisy
+// export default CardCongratulationsDaisy

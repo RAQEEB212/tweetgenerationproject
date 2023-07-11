@@ -7,6 +7,8 @@ import Icon from 'src/@core/components/icon'
 // ** Custom Component Import
 import CardStatisticsVertical from 'src/@core/components/card-statistics/card-stats-vertical'
 
+import Twittercard from "../../apps/managetweet";
+
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
 
@@ -29,65 +31,98 @@ const CrmDashboard = () => {
   return (
     <ApexChartWrapper>
       <Grid container spacing={6} className='match-height'>
-        <Grid item xs={12} md={4}>
-          <CrmAward />
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
+        {/*<Grid item xs={12} md={4}>*/}
+        {/*  <CrmAward/>*/}
+        {/*</Grid>*/}
+
+        <Grid item xs={12} sm={6} md={4}>
           <CardStatisticsVertical
-            stats='155k'
+            stats='15k'
             color='primary'
             trendNumber='+22%'
-            title='Total Orders'
+            title='Subscribers'
             chipText='Last 4 Month'
             icon={<Icon icon='mdi:cart-plus' />}
           />
+
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
+        <Grid item xs={12} sm={6} md={4}>
           <CardStatisticsVertical
-            stats='$13.4k'
+            stats='13.4k'
             color='success'
             trendNumber='+38%'
-            title='Total Sales'
+            title='users'
             chipText='Last Six Month'
             icon={<Icon icon='mdi:currency-usd' />}
           />
         </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <CrmTotalProfit />
-        </Grid>
-        <Grid item xs={6} sm={3} md={2}>
-          <CrmTotalGrowth />
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <CrmOrganicSessions />
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <CrmProjectTimeline />
-        </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <CrmWeeklyOverview />
+          <CardStatisticsVertical
+            stats='143.4k'
+            color='success'
+            trendNumber='+38%'
+            title='tweets'
+            chipText='Last Six Month'
+            icon={<Icon icon='mdi:currency-usd' />}
+          />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmSocialNetworkVisits />
+
+
+        {/*<Grid item xs={6} sm={3} md={2}>*/}
+        {/*  /!*<CrmTotalProfit />*!/*/}
+        {/*</Grid>*/}
+
+
+        {/*<Grid item xs={6} sm={3} md={2}>*/}
+        {/*  /!*<CrmTotalGrowth />*!/*/}
+        {/*</Grid>*/}
+
+
+
+
+        {/*<Grid item xs={12} md={4}>*/}
+        {/*  <CrmOrganicSessions />*/}
+        {/*</Grid>*/}
+
+
+        {/*<Grid item xs={12} md={8}>*/}
+        {/*  <CrmProjectTimeline />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CrmWeeklyOverview />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CrmSocialNetworkVisits />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CrmMonthlyBudget />*/}
+        {/*</Grid>*/}
+
+
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CrmMeetingSchedule />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CrmExternalLinks />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CrmPaymentHistory />*/}
+        {/*</Grid>*/}
+
+
+        {/*<Grid item xs={12} md={4}>*/}
+        {/*  <CrmMostSalesInCountries />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} md={8}>*/}
+        {/*  <CrmTable />*/}
+        {/*</Grid>*/}
+
+
+        <Grid item xs={12} sm={6} md={20}>
+        <Twittercard />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmMonthlyBudget />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmMeetingSchedule />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmExternalLinks />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CrmPaymentHistory />
-        </Grid>
-        <Grid item xs={12} md={4}>
-          <CrmMostSalesInCountries />
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <CrmTable />
-        </Grid>
+
+
       </Grid>
     </ApexChartWrapper>
   )

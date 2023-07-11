@@ -67,7 +67,7 @@ const renderTeams = arr => {
 }
 
 const AboutOverivew = props => {
-  const { teams, about, contacts, overview } = props
+  const { teams, about, contacts, } = props
 
   return (
     <Grid container spacing={6}>
@@ -76,7 +76,7 @@ const AboutOverivew = props => {
           <CardContent>
             <Box sx={{ mb: 7 }}>
               <Typography variant='body2' sx={{ mb: 4, color: 'text.disabled', textTransform: 'uppercase' }}>
-                About
+                About Admin
               </Typography>
               {renderList(about)}
             </Box>
@@ -87,26 +87,26 @@ const AboutOverivew = props => {
               {renderList(contacts)}
             </Box>
             <div>
-              <Typography variant='body2' sx={{ mb: 4, color: 'text.disabled', textTransform: 'uppercase' }}>
-                Teams
-              </Typography>
+              {/*<Typography variant='body2' sx={{ mb: 4, color: 'text.disabled', textTransform: 'uppercase' }}>*/}
+              {/*  Teams*/}
+              {/*</Typography>*/}
               {renderTeams(teams)}
             </div>
           </CardContent>
         </Card>
       </Grid>
-      <Grid item xs={12}>
-        <Card>
-          <CardContent>
-            <div>
-              <Typography variant='body2' sx={{ mb: 4, color: 'text.disabled', textTransform: 'uppercase' }}>
-                Overview
-              </Typography>
-              {renderList(overview)}
-            </div>
-          </CardContent>
-        </Card>
-      </Grid>
+      {/*<Grid item xs={12}>*/}
+      {/*  <Card>*/}
+      {/*    /!*<CardContent>*!/*/}
+      {/*    /!*  <div>*!/*/}
+      {/*    /!*    /!*<Typography variant='body2' sx={{ mb: 4, color: 'text.disabled', textTransform: 'uppercase' }}>*!/*!/*/}
+      {/*    /!*    /!*  Overview*!/*!/*/}
+      {/*    /!*    /!*</Typography>*!/*!/*/}
+      {/*    /!*    {renderList(overview)}*!/*/}
+      {/*    /!*  </div>*!/*/}
+      {/*    /!*</CardContent>*!/*/}
+      {/*  </Card>*/}
+      {/*</Grid>*/}
     </Grid>
   )
 }

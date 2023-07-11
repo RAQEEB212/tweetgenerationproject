@@ -1,6 +1,6 @@
 import { GoogleLogin } from 'react-google-login'
 
-const clientId = "http://573694337447-kfqhh53vknfg2n7apfugcatb1sc43g0c.apps.googleusercontent.com"
+const clientId = "573694337447-kfqhh53vknfg2n7apfugcatb1sc43g0c.apps.googleusercontent.com";
 
 function LoginGoogle() {
 
@@ -16,7 +16,7 @@ function LoginGoogle() {
     <div id="signInButton">
       <GoogleLogin
         clientId ={clientId}
-        buttonText "Login"
+        buttonText  = "Login"
         onSucess ={onSuccess}
         onFailure ={onFailure}
         cookiePolicy ={'single_host_origin'}

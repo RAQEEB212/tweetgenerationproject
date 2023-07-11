@@ -1,6 +1,15 @@
 // ** React Imports
 import { useState } from 'react'
 
+/////////imported
+import LoginGoogle from './googlelogin'
+
+import { useEffect } from 'react'
+// import { gapi} from "gapi-script";
+
+
+// const clientId = "573694337447-kfqhh53vknfg2n7apfugcatb1sc43g0c.apps.googleusercontent.com";
+
 // ** Next Imports
 import Link from 'next/link'
 
@@ -21,6 +30,7 @@ import FormHelperText from '@mui/material/FormHelperText'
 import InputAdornment from '@mui/material/InputAdornment'
 import Typography from '@mui/material/Typography'
 import MuiFormControlLabel from '@mui/material/FormControlLabel'
+
 
 // ** Icon Imports
 import Icon from 'src/@core/components/icon'

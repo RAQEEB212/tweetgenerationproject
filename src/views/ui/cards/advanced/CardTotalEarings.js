@@ -80,4 +80,4 @@ const CardTotalEarnings = () => {
   )
 }
 
-export default CardTotalEarnings
+// export default CardTotalEarnings

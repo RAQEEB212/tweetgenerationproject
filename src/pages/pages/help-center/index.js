@@ -8,10 +8,10 @@ import CardContent from '@mui/material/CardContent'
 import axios from 'axios'
 
 // ** Demo Imports
-import HelpCenterLandingHeader from 'src/views/pages/help-center/landing/HelpCenterLandingHeader'
-import HelpCenterLandingFooter from 'src/views/pages/help-center/landing/HelpCenterLandingFooter'
-import HelpCenterLandingKnowledgeBase from 'src/views/pages/help-center/landing/HelpCenterLandingKnowledgeBase'
-import HelpCenterLandingArticlesOverview from 'src/views/pages/help-center/landing/HelpCenterLandingArticlesOverview'
+// import HelpCenterLandingHeader from 'src/views/pages/help-center/landing/HelpCenterLandingHeader'
+// import HelpCenterLandingFooter from 'src/views/pages/help-center/landing/HelpCenterLandingFooter'
+// import HelpCenterLandingKnowledgeBase from 'src/views/pages/help-center/landing/HelpCenterLandingKnowledgeBase'
+// // import HelpCenterLandingArticlesOverview from 'src/views/pages/help-center/landing/HelpCenterLandingArticlesOverview'
 
 const StyledCardContent = styled(CardContent)(({ theme }) => ({
   paddingTop: `${theme.spacing(20)} !important`,
@@ -27,27 +27,27 @@ const HelpCenter = ({ apiData }) => {
     <Card>
       {apiData !== null ? (
         <>
-          <HelpCenterLandingHeader data={apiData.categories} allArticles={apiData.allArticles} />
+          {/*<HelpCenterLandingHeader data={apiData.categories} allArticles={apiData.allArticles} />*/}
           <StyledCardContent>
             <Typography variant='h5' sx={{ mb: 6, fontWeight: 600, textAlign: 'center' }}>
               Popular Articles
             </Typography>
-            <HelpCenterLandingArticlesOverview articles={apiData.popularArticles} />
+            {/*<HelpCenterLandingArticlesOverview articles={apiData.popularArticles} />*/}
           </StyledCardContent>
           <StyledCardContent sx={{ backgroundColor: 'action.hover' }}>
             <Typography variant='h5' sx={{ mb: 6, fontWeight: 600, textAlign: 'center' }}>
               Knowledge Base
             </Typography>
-            <HelpCenterLandingKnowledgeBase categories={apiData.categories} />
+            {/*<HelpCenterLandingKnowledgeBase categories={apiData.categories} />*/}
           </StyledCardContent>
           <StyledCardContent>
             <Typography variant='h5' sx={{ mb: 6, fontWeight: 600, textAlign: 'center' }}>
               Keep Learning
             </Typography>
-            <HelpCenterLandingArticlesOverview articles={apiData.keepLearning} />
+            {/*<HelpCenterLandingArticlesOverview articles={apiData.keepLearning} />*/}
           </StyledCardContent>
           <StyledCardContent sx={{ textAlign: 'center', backgroundColor: 'action.hover' }}>
-            <HelpCenterLandingFooter />
+            {/*<HelpCenterLandingFooter />*/}
           </StyledCardContent>
         </>
       ) : null}
@@ -66,4 +66,4 @@ export const getStaticProps = async () => {
   }
 }
 
-export default HelpCenter
+// export default HelpCenter

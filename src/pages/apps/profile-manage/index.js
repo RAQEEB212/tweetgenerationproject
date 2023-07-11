@@ -303,11 +303,10 @@ const UserList = ({ apiData }) => {
             <Grid container spacing={12} className={"flex w-full space-evenly"}>
               <Grid item sm={4} xs={12}>
                 <span class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-z40hnk-MuiTypography-root">Subscribers</span>
-
+              </Grid>
               </Grid>
 
-              </Grid>
-              <Grid item sm={4} xs={12}>
+              <Grid item sm={4} xs={12} >
                 <FormControl fullWidth>
                   <InputLabel id='plan-select'>Select Plan</InputLabel>
                   <Select
@@ -328,6 +327,7 @@ const UserList = ({ apiData }) => {
                   </Select>
                 </FormControl>
               </Grid>
+
 
             {/*</Grid>*/}
           </CardContent>

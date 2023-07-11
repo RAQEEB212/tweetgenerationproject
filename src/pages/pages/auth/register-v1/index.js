@@ -149,9 +149,9 @@ const RegisterV1 = () => {
           </Box>
           <Box sx={{ mb: 6 }}>
             <Typography variant='h5' sx={{ mb: 1.5, letterSpacing: '0.18px', fontWeight: 600 }}>
-              Adventure starts here 🚀
+              Welcome To FasTech Services
             </Typography>
-            <Typography variant='body2'>Make your app management easy and fun!</Typography>
+            <Typography variant='body2'>Make your Tweets management easy and fun!</Typography>
           </Box>
           <form noValidate autoComplete='off' onSubmit={e => e.preventDefault()}>
             <TextField autoFocus fullWidth id='username' label='Username' sx={{ mb: 4 }} />
@@ -218,23 +218,27 @@ const RegisterV1 = () => {
               or
             </Divider>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <IconButton href='/' component={Link} sx={{ color: '#497ce2' }} onClick={e => e.preventDefault()}>
-                <Icon icon='mdi:facebook' />
-              </IconButton>
+              {/*<IconButton href='/' component={Link} sx={{ color: '#497ce2' }} onClick={e => e.preventDefault()}>*/}
+              {/*  <Icon icon='mdi:facebook' />*/}
+              {/*</IconButton>*/}
+
               <IconButton href='/' component={Link} sx={{ color: '#1da1f2' }} onClick={e => e.preventDefault()}>
                 <Icon icon='mdi:twitter' />
               </IconButton>
-              <IconButton
-                href='/'
-                component={Link}
-                onClick={e => e.preventDefault()}
-                sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : 'grey.300') }}
-              >
-                <Icon icon='mdi:github' />
-              </IconButton>
+
+              {/*<IconButton*/}
+              {/*  href='/'*/}
+              {/*  component={Link}*/}
+              {/*  onClick={e => e.preventDefault()}*/}
+              {/*  sx={{ color: theme => (theme.palette.mode === 'light' ? '#272727' : 'grey.300') }}*/}
+              {/*>*/}
+              {/*  <Icon icon='mdi:github' />*/}
+              {/*</IconButton>*/}
+
               <IconButton href='/' component={Link} sx={{ color: '#db4437' }} onClick={e => e.preventDefault()}>
                 <Icon icon='mdi:google' />
               </IconButton>
+
             </Box>
           </form>
         </CardContent>

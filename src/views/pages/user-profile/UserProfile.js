@@ -20,10 +20,10 @@ import CircularProgress from '@mui/material/CircularProgress'
 import Icon from 'src/@core/components/icon'
 
 // ** Demo Components
-import Teams from 'src/views/pages/user-profile/teams'
+// import Teams from 'src/views/pages/user-profile/teams'
 import Profile from 'src/views/pages/user-profile/profile'
-import Projects from 'src/views/pages/user-profile/projects'
-import Connections from 'src/views/pages/user-profile/connections'
+// import Projects from 'src/views/pages/user-profile/projects'
+// import Connections from 'src/views/pages/user-profile/connections'
 import UserProfileHeader from 'src/views/pages/user-profile/UserProfileHeader'
 
 const TabList = styled(MuiTabList)(({ theme }) => ({
@@ -76,9 +76,9 @@ const UserProfile = ({ tab, data }) => {
 
   const tabContentList = {
     profile: <Profile data={data} />,
-    teams: <Teams data={data} />,
-    projects: <Projects data={data} />,
-    connections: <Connections data={data} />
+    // teams: <Teams data={data} />,
+    // projects: <Projects data={data} />,
+    // connections: <Connections data={data} />
   }
 
   return (
@@ -91,49 +91,49 @@ const UserProfile = ({ tab, data }) => {
           <TabContext value={activeTab}>
             <Grid container spacing={6}>
               <Grid item xs={12}>
-                <TabList
-                  variant='scrollable'
-                  scrollButtons='auto'
-                  onChange={handleChange}
-                  aria-label='customized tabs example'
-                >
-                  <Tab
-                    value='profile'
-                    label={
-                      <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                        <Icon icon='mdi:account-outline' />
-                        {!hideText && 'Profile'}
-                      </Box>
-                    }
-                  />
-                  <Tab
-                    value='teams'
-                    label={
-                      <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                        <Icon icon='mdi:account-multiple-outline' />
-                        {!hideText && 'Teams'}
-                      </Box>
-                    }
-                  />
-                  <Tab
-                    value='projects'
-                    label={
-                      <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                        <Icon icon='mdi:view-grid-outline' />
-                        {!hideText && 'Projects'}
-                      </Box>
-                    }
-                  />
-                  <Tab
-                    value='connections'
-                    label={
-                      <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>
-                        <Icon icon='mdi:link-variant' />
-                        {!hideText && 'Connections'}
-                      </Box>
-                    }
-                  />
-                </TabList>
+                {/*<TabList*/}
+                {/*  variant='scrollable'*/}
+                {/*  scrollButtons='auto'*/}
+                {/*  onChange={handleChange}*/}
+                {/*  aria-label='customized tabs example'*/}
+                {/*>*/}
+                  {/*<Tab*/}
+                  {/*  value='profile'*/}
+                  {/*  label={*/}
+                  {/*    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>*/}
+                  {/*      <Icon icon='mdi:account-outline' />*/}
+                  {/*      {!hideText && 'Profile'}*/}
+                  {/*    </Box>*/}
+                  {/*  }*/}
+                  {/*/>*/}
+                  {/*<Tab*/}
+                  {/*  value='teams'*/}
+                  {/*  label={*/}
+                  {/*    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>*/}
+                  {/*      <Icon icon='mdi:account-multiple-outline' />*/}
+                  {/*      {!hideText && 'Teams'}*/}
+                  {/*    </Box>*/}
+                  {/*  }*/}
+                  {/*/>*/}
+                  {/*<Tab*/}
+                  {/*  value='projects'*/}
+                  {/*  label={*/}
+                  {/*    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>*/}
+                  {/*      <Icon icon='mdi:view-grid-outline' />*/}
+                  {/*      {!hideText && 'Projects'}*/}
+                  {/*    </Box>*/}
+                  {/*  }*/}
+                  {/*/>*/}
+                  {/*<Tab*/}
+                  {/*  value='connections'*/}
+                  {/*  label={*/}
+                  {/*    <Box sx={{ display: 'flex', alignItems: 'center', ...(!hideText && { '& svg': { mr: 2 } }) }}>*/}
+                  {/*      <Icon icon='mdi:link-variant' />*/}
+                  {/*      {!hideText && 'Connections'}*/}
+                  {/*    </Box>*/}
+                  {/*  }*/}
+                  {/*/>*/}
+                {/*</TabList>*/}
               </Grid>
               <Grid item xs={12}>
                 {isLoading ? (
