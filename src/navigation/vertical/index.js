@@ -30,12 +30,12 @@ const navigation = () => {
     },
     {
       title: 'Profile',
-      icon: 'mdi:account-cash-outline',
+      icon: 'iconamoon:profile-bold',
       path: '/apps/profile-manage'
     },
     {
       title: 'Logout',
-      icon: 'mdi:account-cash-outline',
+      icon: 'memory:logout',
       path: '/logout'
     }
   ]
