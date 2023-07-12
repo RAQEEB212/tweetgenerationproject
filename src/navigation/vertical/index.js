@@ -31,7 +31,7 @@ const navigation = () => {
     {
       title: 'Profile',
       icon: 'mdi:account-cash-outline',
-      path: '/apps/user/view/overview'
+      path: '/apps/profile-manage'
     },
     {
       title: 'Logout',

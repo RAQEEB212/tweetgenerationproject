@@ -8,6 +8,7 @@ import Icon from 'src/@core/components/icon'
 import CardStatisticsVertical from 'src/@core/components/card-statistics/card-stats-vertical'
 import CardTwitter from "../../views/ui/cards/basic/CardTwitter";
 import Twittercard from "../apps/user-base-see";
+import DashBoardTwittercard from "./cardviewfordashboard";
 
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
@@ -26,46 +27,79 @@ import CrmProjectTimeline from 'src/views/dashboards/crm/CrmProjectTimeline'
 import CrmMeetingSchedule from 'src/views/dashboards/crm/CrmMeetingSchedule'
 import CrmSocialNetworkVisits from 'src/views/dashboards/crm/CrmSocialNetworkVisits'
 import CrmMostSalesInCountries from 'src/views/dashboards/crm/CrmMostSalesInCountries'
+import EcommerceSalesOverview from "../../views/dashboards/ecommerce/EcommerceSalesOverview";
+import CardStatisticsCharacter from "../../@core/components/card-statistics/card-stats-with-image";
 
 const CrmDashboard = () => {
   return (
     <ApexChartWrapper>
       <Grid container spacing={6} className='match-height'>
+        <Grid item xs={12} md={6}>
+          <EcommerceSalesOverview />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={3}>
+          <CardStatisticsCharacter
+            data={{
+              stats: '8.14k',
+              title: 'Users',
+              chipColor: 'primary',
+              trendNumber: '+15.6%',
+              chipText: 'Year of 2022',
+              src: '/images/cards/card-stats-img-1.png'
+            }}
+          />
+        </Grid>
+
+        <Grid item xs={12} sm={6} md={3}>
+          <CardStatisticsCharacter
+            data={{
+              stats: '12.2k',
+              trend: 'negative',
+              title: 'Tweets',
+              chipColor: 'success',
+              trendNumber: '-25.5%',
+              chipText: 'Last Month',
+              src: '/images/cards/card-stats-img-2.png'
+            }}
+          />
+        </Grid>
+
         {/*<Grid item xs={12} md={4}>*/}
         {/*  <CrmAward/>*/}
         {/*</Grid>*/}
 
-        <Grid item xs={12} sm={6} md={4}>
-          <CardStatisticsVertical
-            stats='15k'
-            color='primary'
-            trendNumber='+22%'
-            title='Subscribers'
-            chipText='Last 4 Month'
-            icon={<Icon icon='mdi:cart-plus' />}
-          />
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CardStatisticsVertical*/}
+        {/*    stats='15k'*/}
+        {/*    color='primary'*/}
+        {/*    trendNumber='+22%'*/}
+        {/*    title='Subscribers'*/}
+        {/*    chipText='Last 4 Month'*/}
+        {/*    icon={<Icon icon='mdi:cart-plus' />}*/}
+        {/*  />*/}
 
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CardStatisticsVertical
-            stats='13.4k'
-            color='success'
-            trendNumber='+38%'
-            title='users'
-            chipText='Last Six Month'
-            icon={<Icon icon='mdi:currency-usd' />}
-          />
-        </Grid>
-        <Grid item xs={12} sm={6} md={4}>
-          <CardStatisticsVertical
-            stats='143.4k'
-            color='success'
-            trendNumber='+38%'
-            title='tweets'
-            chipText='Last Six Month'
-            icon={<Icon icon='mdi:currency-usd' />}
-          />
-        </Grid>
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CardStatisticsVertical*/}
+        {/*    stats='13.4k'*/}
+        {/*    color='success'*/}
+        {/*    trendNumber='+38%'*/}
+        {/*    title='users'*/}
+        {/*    chipText='Last Six Month'*/}
+        {/*    icon={<Icon icon='mdi:currency-usd' />}*/}
+        {/*  />*/}
+        {/*</Grid>*/}
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*  <CardStatisticsVertical*/}
+        {/*    stats='143.4k'*/}
+        {/*    color='success'*/}
+        {/*    trendNumber='+38%'*/}
+        {/*    title='tweets'*/}
+        {/*    chipText='Last Six Month'*/}
+        {/*    icon={<Icon icon='mdi:currency-usd' />}*/}
+        {/*  />*/}
+        {/*</Grid>*/}
 
 
         {/*<Grid item xs={6} sm={3} md={2}>*/}
@@ -128,8 +162,12 @@ const CrmDashboard = () => {
 
 
         {/*this is imported from user base see list of tweets ,this is same  page  as  in user base see list of tweet*/}
-        <Grid item xs={12} sm={6} md={20}>
-          <Twittercard />
+
+        <Grid item xs={12} sm={6} md={12}>
+          {/*<Twittercard />*/}
+          <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center',paddingLeft: '200px' }}>
+            <DashBoardTwittercard />
+          </div>
         </Grid>
         {/*<Grid key={idx} item xs={12} sm={6} md={4}>*/}
         {/*  <CardTwitter />*/}

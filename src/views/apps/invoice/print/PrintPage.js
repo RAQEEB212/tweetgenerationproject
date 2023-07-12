@@ -149,7 +149,7 @@ const InvoicePrint = ({ id }) => {
                   Dehli Housing Muslim Society, Sukkur, Sindh Pakistan
                 </Typography>
                 <Typography variant='body2' sx={{ mb: 1 }}>
-                  info@fastechsystem.com
+                  info@letstweetsystem.com
                 </Typography>
                 <Typography variant='body2'>+92 313 1373109</Typography>
               </div>

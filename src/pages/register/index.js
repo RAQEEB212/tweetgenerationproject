@@ -260,7 +260,7 @@ const Register = () => {
               </Typography>
             </Box>
             <Box sx={{ mb: 6 }}>
-              <TypographyStyled variant='h5'>Welcome to FasTech Services </TypographyStyled>
+              <TypographyStyled variant='h5'>Welcome to Let's Tweet Services </TypographyStyled>
               <Typography variant='body2'>Make your tweets management easy and fun!</Typography>
             </Box>
             <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>

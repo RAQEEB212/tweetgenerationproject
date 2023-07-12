@@ -117,8 +117,7 @@ const CrmDashboard = () => {
         {/*  <CrmTable />*/}
         {/*</Grid>*/}
 
-
-        <Grid item xs={12} sm={6} md={20}>
+        <Grid item xs={12} sm={6} md={7}>
         <Twittercard />
         </Grid>
 

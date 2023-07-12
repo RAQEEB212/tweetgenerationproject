@@ -14,7 +14,7 @@ const FooterContent = () => {
         {`© ${new Date().getFullYear()}, Made with `}
 
         <Box component='span' sx={{ color: 'error.main' }}>
-          FasTech
+          Let's Tweet
         </Box>
 
 
