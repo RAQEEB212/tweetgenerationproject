@@ -172,4 +172,4 @@ const HelpCenterArticle = ({ articles, activeArticle, activeSubcategory }) => {
   )
 }
 
-export default HelpCenterArticle
+// export default HelpCenterArticle

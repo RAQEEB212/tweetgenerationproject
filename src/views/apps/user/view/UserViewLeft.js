@@ -40,16 +40,16 @@ import { getInitials } from 'src/@core/utils/get-initials'
 
 const data = {
   id: 1,
-  role: 'admin',
-  status: 'active',
-  username: 'gslixby0',
+  role: 'User',
+  // status: 'active',
+  username: 'NoorUjjan',
   avatarColor: 'primary',
-  country: 'El Salvador',
-  company: 'Yotz PVT LTD',
+  country: 'Pakistan',
+  // company: 'Yotz ',
   contact: '(479) 232-9151',
   currentPlan: 'enterprise',
-  fullName: 'Daisy Patterson',
-  email: 'gslixby0@abc.net.au',
+  fullName: 'Noor Ujjan',
+  email: 'noorujjan@gmail.com',
   avatar: '/images/avatars/4.png'
 }
 
@@ -98,7 +98,7 @@ const UserViewLeft = () => {
   const handlePlansClose = () => setOpenPlans(false)
   if (data) {
     return (
-      <Grid container spacing={6}>
+      <Grid container spacing={12}>
         <Grid item xs={12}>
           <Card>
             <CardContent sx={{ pt: 15, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
@@ -138,32 +138,32 @@ const UserViewLeft = () => {
               />
             </CardContent>
 
-            <CardContent sx={{ my: 1 }}>
-              <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <Box sx={{ mr: 8, display: 'flex', alignItems: 'center' }}>
-                  <CustomAvatar skin='light' variant='rounded' sx={{ mr: 3 }}>
-                    <Icon icon='mdi:check' />
-                  </CustomAvatar>
-                  <div>
-                    <Typography variant='h6' sx={{ lineHeight: 1.3 }}>
-                      1.23k
-                    </Typography>
-                    <Typography variant='body2'>Task Done</Typography>
-                  </div>
-                </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                  <CustomAvatar skin='light' variant='rounded' sx={{ mr: 3 }}>
-                    <Icon icon='mdi:briefcase-variant-outline' />
-                  </CustomAvatar>
-                  <div>
-                    <Typography variant='h6' sx={{ lineHeight: 1.3 }}>
-                      568
-                    </Typography>
-                    <Typography variant='body2'>Project Done</Typography>
-                  </div>
-                </Box>
-              </Box>
-            </CardContent>
+            {/*<CardContent sx={{ my: 1 }}>*/}
+              {/*<Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>*/}
+                {/*<Box sx={{ mr: 8, display: 'flex', alignItems: 'center' }}>*/}
+                {/*  <CustomAvatar skin='light' variant='rounded' sx={{ mr: 3 }}>*/}
+                {/*    <Icon icon='mdi:check' />*/}
+                {/*  </CustomAvatar>*/}
+                {/*  /!*<div>*!/*/}
+                {/*  /!*  <Typography variant='h6' sx={{ lineHeight: 1.3 }}>*!/*/}
+                {/*  /!*    1.23k*!/*/}
+                {/*  /!*  </Typography>*!/*/}
+                {/*  /!*  <Typography variant='body2'>Task Done</Typography>*!/*/}
+                {/*  /!*</div>*!/*/}
+                {/*</Box>*/}
+              {/*  <Box sx={{ display: 'flex', alignItems: 'center' }}>*/}
+              {/*    <CustomAvatar skin='light' variant='rounded' sx={{ mr: 3 }}>*/}
+              {/*      <Icon icon='mdi:briefcase-variant-outline' />*/}
+              {/*    </CustomAvatar>*/}
+              {/*    <div>*/}
+              {/*      <Typography variant='h6' sx={{ lineHeight: 1.3 }}>*/}
+              {/*        568*/}
+              {/*      </Typography>*/}
+              {/*      <Typography variant='body2'>Project Done</Typography>*/}
+              {/*    </div>*/}
+              {/*  </Box>*/}
+              {/*</Box>*/}
+            {/*</CardContent>*/}
 
             <CardContent>
               <Typography variant='h6'>Details</Typography>
@@ -177,34 +177,12 @@ const UserViewLeft = () => {
                 </Box>
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
-                    Billing Email:
+                    Email:
                   </Typography>
                   <Typography variant='body2'>{data.email}</Typography>
                 </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography variant='subtitle2' sx={{ mr: 2, color: 'text.primary' }}>
-                    Status:
-                  </Typography>
-                  <CustomChip
-                    skin='light'
-                    size='small'
-                    label={data.status}
-                    color={statusColors[data.status]}
-                    sx={{
-                      height: 20,
-                      fontWeight: 500,
-                      fontSize: '0.75rem',
-                      borderRadius: '5px',
-                      textTransform: 'capitalize'
-                    }}
-                  />
-                </Box>
-                <Box sx={{ display: 'flex', mb: 2.7 }}>
-                  <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Role:</Typography>
-                  <Typography variant='body2' sx={{ textTransform: 'capitalize' }}>
-                    {data.role}
-                  </Typography>
-                </Box>
+
+
                 <Box sx={{ display: 'flex', mb: 2.7 }}>
                   <Typography sx={{ mr: 2, fontWeight: 500, fontSize: '0.875rem' }}>Tax ID:</Typography>
                   <Typography variant='body2'>Tax-8894</Typography>
@@ -225,9 +203,9 @@ const UserViewLeft = () => {
             </CardContent>
 
             <CardActions sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>
-                Edit
-              </Button>
+            {/*  <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>*/}
+            {/*    Edit*/}
+            {/*  </Button>*/}
               <Button color='error' variant='outlined' onClick={() => setSuspendDialogOpen(true)}>
                 Suspend
               </Button>
@@ -424,9 +402,9 @@ const UserViewLeft = () => {
               <Typography variant='caption' sx={{ mt: 1.5, mb: 6 }}>
                 4 days remaining
               </Typography>
-              <Button variant='contained' sx={{ width: '100%' }} onClick={handlePlansClickOpen}>
-                Upgrade Plan
-              </Button>
+              {/*<Button variant='contained' sx={{ width: '100%' }} onClick={handlePlansClickOpen}>*/}
+              {/*  Upgrade Plan*/}
+              {/*</Button>*/}
             </CardContent>
 
             <Dialog

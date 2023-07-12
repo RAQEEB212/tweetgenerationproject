@@ -132,4 +132,4 @@ const CardGeneralStatistics = () => {
   )
 }
 
-export default CardGeneralStatistics
+// export default CardGeneralStatistics

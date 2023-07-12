@@ -27,7 +27,7 @@ const data = {
       contact: '(472) 607-9137',
       email: 'hredmore1@imgur.com',
       currentPlan: 'team',
-      status: 'pending',
+      status: 'active',
       avatar: '/images/avatars/3.png'
     },
     {
@@ -52,7 +52,7 @@ const data = {
       country: 'China',
       contact: '(923) 690-6806',
       email: 'crisby3@wordpress.com',
-      currentPlan: 'team',
+      currentPlan: 'Basic',
       status: 'inactive',
       avatar: '/images/avatars/3.png'
     },
@@ -66,7 +66,7 @@ const data = {
       contact: '(669) 914-1078',
       email: 'mhurran4@yahoo.co.jp',
       currentPlan: 'enterprise',
-      status: 'pending',
+      status: 'active',
       avatar: '/images/avatars/1.png'
     },
     {
@@ -78,7 +78,7 @@ const data = {
       country: 'China',
       contact: '(958) 973-3093',
       email: 'shalstead5@shinystat.com',
-      currentPlan: 'company',
+      currentPlan: 'Free trial',
       status: 'active',
       avatar: '',
       avatarColor: 'error'
@@ -92,8 +92,8 @@ const data = {
       country: 'Canada',
       contact: '(825) 977-8152',
       email: 'bgallemore6@boston.com',
-      currentPlan: 'company',
-      status: 'pending',
+      currentPlan: 'Basic',
+      status: 'non active',
       avatar: '',
       avatarColor: 'warning'
     },
@@ -107,7 +107,7 @@ const data = {
       contact: '(187) 440-0934',
       email: 'kliger7@vinaora.com',
       currentPlan: 'enterprise',
-      status: 'pending',
+      status: 'active',
       avatar: '/images/avatars/4.png'
     },
     {
@@ -119,8 +119,8 @@ const data = {
       country: 'China',
       contact: '(978) 146-5443',
       email: 'fscotfurth8@dailymotion.com',
-      currentPlan: 'team',
-      status: 'pending',
+      currentPlan: 'Basic',
+      status: 'active',
       avatar: '/images/avatars/2.png'
     },
     {
@@ -132,7 +132,7 @@ const data = {
       country: 'Jamaica',
       contact: '(589) 284-6732',
       email: 'jbellany9@kickstarter.com',
-      currentPlan: 'company',
+      currentPlan: 'Basic',
       status: 'inactive',
       avatar: '/images/avatars/5.png'
     },

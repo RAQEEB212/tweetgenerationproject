@@ -1,108 +1,380 @@
 // ** React Imports
-import { useEffect, useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
+
+// ** Next Imports
+import Link from 'next/link'
 
 // ** MUI Imports
 import Box from '@mui/material/Box'
-import { useTheme } from '@mui/material/styles'
-import useMediaQuery from '@mui/material/useMediaQuery'
+import Card from '@mui/material/Card'
+import Menu from '@mui/material/Menu'
+import Grid from '@mui/material/Grid'
+import Divider from '@mui/material/Divider'
+import { DataGrid } from '@mui/x-data-grid'
+import { styled } from '@mui/material/styles'
+import MenuItem from '@mui/material/MenuItem'
+import IconButton from '@mui/material/IconButton'
+import Typography from '@mui/material/Typography'
+import CardHeader from '@mui/material/CardHeader'
+import InputLabel from '@mui/material/InputLabel'
+import FormControl from '@mui/material/FormControl'
+import CardContent from '@mui/material/CardContent'
+import Select from '@mui/material/Select'
 
-// ** Store & Actions Imports
+// ** Icon Imports
+import Icon from 'src/@core/components/icon'
+
+// ** Store Imports
 import { useDispatch, useSelector } from 'react-redux'
-import { sendMsg, selectChat, fetchUserProfile, fetchChatsContacts, removeSelectedChat } from 'src/store/apps/chat'
 
-// ** Hooks
-import { useSettings } from 'src/@core/hooks/useSettings'
+// ** Custom Components Imports
+import CustomChip from 'src/@core/components/mui/chip'
+import CustomAvatar from 'src/@core/components/mui/avatar'
+import CardStatisticsHorizontal from 'src/@core/components/card-statistics/card-stats-horizontal'
 
-// ** Utils Imports
+// ** Utils Import
 import { getInitials } from 'src/@core/utils/get-initials'
-import { formatDateToMonthShort } from 'src/@core/utils/format'
 
-// ** Chat App Components Imports
-import SidebarLeft from 'src/views/apps/chat/SidebarLeft'
-import ChatContent from 'src/views/apps/chat/ChatContent'
+// ** Actions Imports
+import { fetchData, deleteUser } from 'src/store/apps/user'
 
-const AppChat = () => {
-  // ** States
-  const [userStatus, setUserStatus] = useState('online')
-  const [leftSidebarOpen, setLeftSidebarOpen] = useState(false)
-  const [userProfileLeftOpen, setUserProfileLeftOpen] = useState(false)
-  const [userProfileRightOpen, setUserProfileRightOpen] = useState(false)
+// ** Third Party Components
+import axios from 'axios'
 
-  // ** Hooks
-  const theme = useTheme()
-  const { settings } = useSettings()
-  const dispatch = useDispatch()
-  const hidden = useMediaQuery(theme.breakpoints.down('lg'))
-  const store = useSelector(state => state.chat)
+// ** Custom Table Components Imports
+import TableHeader from 'src/views/apps/user/list/TableHeader'
+import AddUserDrawer from 'src/views/apps/user/list/AddUserDrawer'
+import TableServerSide from "../../../views/table/data-grid/TableServerSide";
+import TableServerSidecopy from "../../../views/table/data-grid/TableServerSidecopy";
+import Button from "@mui/material/Button";
+import CardActions from "@mui/material/CardActions";
 
-  // ** Vars
-  const { skin } = settings
-  const smAbove = useMediaQuery(theme.breakpoints.up('sm'))
-  const sidebarWidth = smAbove ? 370 : 300
-  const mdAbove = useMediaQuery(theme.breakpoints.up('md'))
+// ** Vars
+const userRoleObj = {
+  admin: { icon: 'mdi:laptop', color: 'error.main' },
+  author: { icon: 'mdi:cog-outline', color: 'warning.main' },
+  editor: { icon: 'mdi:pencil-outline', color: 'info.main' },
+  maintainer: { icon: 'mdi:chart-donut', color: 'success.main' },
+  subscriber: { icon: 'mdi:account-outline', color: 'primary.main' }
+}
 
-  const statusObj = {
-    busy: 'error',
-    away: 'warning',
-    online: 'success',
-    offline: 'secondary'
+const userStatusObj = {
+  Active: 'success',
+  Inactive: 'warning'
+
+
+}
+
+const StyledLink = styled(Link)(({ theme }) => ({
+  fontWeight: 600,
+  fontSize: '1rem',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  color: theme.palette.text.secondary,
+  '&:hover': {
+    color: theme.palette.primary.main
   }
-  useEffect(() => {
-    dispatch(fetchUserProfile())
-    dispatch(fetchChatsContacts())
-  }, [dispatch])
-  const handleLeftSidebarToggle = () => setLeftSidebarOpen(!leftSidebarOpen)
-  const handleUserProfileLeftSidebarToggle = () => setUserProfileLeftOpen(!userProfileLeftOpen)
-  const handleUserProfileRightSidebarToggle = () => setUserProfileRightOpen(!userProfileRightOpen)
+}))
+
+// ** renders client column
+const renderClient = row => {
+  if (row.avatar.length) {
+    return <CustomAvatar src={row.avatar} sx={{ mr: 3, width: 34, height: 34 }} />
+  } else {
+    return (
+      <CustomAvatar
+        skin='light'
+        color={row.avatarColor || 'primary'}
+        sx={{ mr: 3, width: 34, height: 34, fontSize: '1rem' }}
+      >
+        {getInitials(row.fullName ? row.fullName : 'John Doe')}
+      </CustomAvatar>
+    )
+  }
+}
+
+const RowOptions = ({ id }) => {
+  // ** Hooks
+  const dispatch = useDispatch()
+
+  // ** State
+  const [anchorEl, setAnchorEl] = useState(null)
+  const rowOptionsOpen = Boolean(anchorEl)
+
+  const handleRowOptionsClick = event => {
+    setAnchorEl(event.currentTarget)
+  }
+
+  const handleRowOptionsClose = () => {
+    setAnchorEl(null)
+  }
+
+  const handleDelete = () => {
+    dispatch(deleteUser(id))
+    handleRowOptionsClose()
+  }
 
   return (
-    <Box
-      className='app-chat'
-      sx={{
-        width: '100%',
-        display: 'flex',
-        borderRadius: 1,
-        overflow: 'hidden',
-        position: 'relative',
-        backgroundColor: 'background.paper',
-        boxShadow: skin === 'bordered' ? 0 : 6,
-        ...(skin === 'bordered' && { border: `1px solid ${theme.palette.divider}` })
-      }}
-    >
-      <SidebarLeft
-        store={store}
-        hidden={hidden}
-        mdAbove={mdAbove}
-        dispatch={dispatch}
-        statusObj={statusObj}
-        userStatus={userStatus}
-        selectChat={selectChat}
-        getInitials={getInitials}
-        sidebarWidth={sidebarWidth}
-        setUserStatus={setUserStatus}
-        leftSidebarOpen={leftSidebarOpen}
-        removeSelectedChat={removeSelectedChat}
-        userProfileLeftOpen={userProfileLeftOpen}
-        formatDateToMonthShort={formatDateToMonthShort}
-        handleLeftSidebarToggle={handleLeftSidebarToggle}
-        handleUserProfileLeftSidebarToggle={handleUserProfileLeftSidebarToggle}
-      />
-      <ChatContent
-        store={store}
-        hidden={hidden}
-        sendMsg={sendMsg}
-        mdAbove={mdAbove}
-        dispatch={dispatch}
-        statusObj={statusObj}
-        getInitials={getInitials}
-        sidebarWidth={sidebarWidth}
-        userProfileRightOpen={userProfileRightOpen}
-        handleLeftSidebarToggle={handleLeftSidebarToggle}
-        handleUserProfileRightSidebarToggle={handleUserProfileRightSidebarToggle}
-      />
-    </Box>
+    <>
+      <IconButton size='small' onClick={handleRowOptionsClick}>
+        <Icon icon='mdi:dots-vertical' />
+      </IconButton>
+      <Menu
+        keepMounted
+        anchorEl={anchorEl}
+        open={rowOptionsOpen}
+        onClose={handleRowOptionsClose}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right'
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right'
+        }}
+        PaperProps={{ style: { minWidth: '8rem' } }}
+      >
+        <MenuItem
+          component={Link}
+          sx={{ '& svg': { mr: 2 } }}
+          onClick={handleRowOptionsClose}
+          href='/apps/user/view/overview/'
+        >
+          <Icon icon='mdi:eye-outline' fontSize={20} />
+          View
+        </MenuItem>
+        <MenuItem onClick={handleRowOptionsClose} sx={{ '& svg': { mr: 2 } }}>
+        </MenuItem>
+        <MenuItem onClick={handleDelete} sx={{ '& svg': { mr: 2 } }}>
+          <Icon icon='mdi:delete-outline' fontSize={20} />
+          Delete
+        </MenuItem>
+        {/*<MenuItem>*/}
+          {/*<CardActions sx={{ display: 'flex', justifyContent: 'center' }}>*/}
+          {/*  /!*  <Button variant='contained' sx={{ mr: 2 }} onClick={handleEditClickOpen}>*!/*/}
+          {/*  /!*    Edit*!/*/}
+          {/*  /!*  </Button>*!/*/}
+          {/*  <Button color='error' variant='outlined' onClick={() => setSuspendDialogOpen(true)}>*/}
+          {/*    Suspend*/}
+          {/*  </Button>*/}
+          {/*</CardActions>*/}
+
+        {/*</MenuItem>*/}
+      </Menu>
+    </>
   )
 }
-AppChat.contentHeightFixed = true
 
-export default AppChat
+const columns = [
+  {
+    flex: 0.2,
+    minWidth: 230,
+    field: 'fullName',
+    headerName: 'User',
+    renderCell: ({ row }) => {
+      const { fullName, username } = row
+
+      return (
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          {renderClient(row)}
+          <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+            <StyledLink href='/apps/user/view/overview/'>{fullName}</StyledLink>
+            <Typography noWrap variant='caption'>
+              {`@${username}`}
+            </Typography>
+          </Box>
+        </Box>
+      )
+    }
+  },
+  {
+    flex: 0.2,
+    minWidth: 250,
+    field: 'email',
+    headerName: 'Email',
+    renderCell: ({ row }) => {
+      return (
+        <Typography noWrap variant='body2'>
+          {row.email}
+        </Typography>
+      )
+    }
+  },
+  // {
+  //   flex: 0.15,
+  //   field: 'role',
+  //   minWidth: 150,
+  //   headerName: 'Role',
+  //   renderCell: ({ row }) => {
+  //     return (
+  //       <Box sx={{ display: 'flex', alignItems: 'center', '& svg': { mr: 3, color: userRoleObj[row.role].color } }}>
+  //         <Icon icon={userRoleObj[row.role].icon} fontSize={20} />
+  //         <Typography noWrap sx={{ color: 'text.secondary', textTransform: 'capitalize' }}>
+  //           {row.role}
+  //         </Typography>
+  //       </Box>
+  //     )
+  //   }
+  // },
+
+  {
+    flex: 0.15,
+    minWidth: 120,
+    headerName: 'Plan',
+    field: 'currentPlan',
+    renderCell: ({ row }) => {
+      return (
+        <Typography variant='subtitle1' noWrap sx={{ textTransform: 'capitalize' }}>
+          {row.currentPlan}
+        </Typography>
+      )
+    }
+  },
+  {
+    flex: 0.1,
+    minWidth: 110,
+    field: 'status',
+    headerName: 'Status',
+    renderCell: ({ row }) => {
+      return (
+        <CustomChip
+          skin='light'
+          size='small'
+          label={row.status}
+          color={userStatusObj[row.status]}
+          sx={{ textTransform: 'capitalize', '& .MuiChip-label': { lineHeight: '18px' } }}
+        />
+      )
+    }
+  },
+  {
+    flex: 0.1,
+    minWidth: 90,
+    sortable: false,
+    field: 'actions',
+    headerName: 'Actions',
+    renderCell: ({ row }) => <RowOptions id={row.id} />
+  }
+]
+
+const UserList = ({ apiData }) => {
+  // ** State
+  const [role, setRole] = useState('')
+  const [plan, setPlan] = useState('')
+  const [value, setValue] = useState('')
+  const [status, setStatus] = useState('')
+  const [pageSize, setPageSize] = useState(10)
+  const [addUserOpen, setAddUserOpen] = useState(false)
+
+  // ** Hooks
+  const dispatch = useDispatch()
+  const store = useSelector(state => state.user)
+  useEffect(() => {
+    dispatch(
+      fetchData({
+        role,
+        status,
+        q: value,
+        currentPlan: plan
+      })
+    )
+  }, [dispatch, plan, role, status, value])
+
+  const handleFilter = useCallback(val => {
+    setValue(val)
+  }, [])
+
+  const handleRoleChange = useCallback(e => {
+    setRole(e.target.value)
+  }, [])
+
+  const handlePlanChange = useCallback(e => {
+    setPlan(e.target.value)
+  }, [])
+
+  const handleStatusChange = useCallback(e => {
+    setStatus(e.target.value)
+  }, [])
+  const toggleAddUserDrawer = () => setAddUserOpen(!addUserOpen)
+
+  return (
+    <Grid container spacing={6}>
+      {/*<Grid item xs={12}>*/}
+      {/*  */}
+      {/*  */}
+
+      {/*</Grid>*/}
+      <Grid item xs={12}>
+        <Card>
+           <CardContent>
+            <Grid container spacing={12} className={"flex w-full space-evenly"}>
+              <Grid item sm={4} xs={12}>
+                <span class="MuiTypography-root MuiTypography-h5 MuiCardHeader-title css-z40hnk-MuiTypography-root">Subscribers</span>
+
+              </Grid>
+
+              </Grid>
+              <Grid item sm={4} xs={12}>
+                <FormControl fullWidth>
+                  <InputLabel id='plan-select'>Select Plan</InputLabel>
+                  <Select
+                    fullWidth
+                    value={plan}
+                    id='select-plan'
+                    label='Select Plan'
+                    labelId='plan-select'
+                    onChange={handlePlanChange}
+                    inputProps={{ placeholder: 'Select Plan' }}
+                  >
+                    <MenuItem value=''>Select Plan</MenuItem>
+                    <MenuItem value='free trail'>Free Trail</MenuItem>
+                    <MenuItem value='basic'>Basic</MenuItem>
+                    <MenuItem value='standard'>Standard</MenuItem>
+                    <MenuItem value='enterprise'>Enterprise</MenuItem>
+
+                  </Select>
+                </FormControl>
+              </Grid>
+
+            {/*</Grid>*/}
+          </CardContent>
+          <Divider />
+          <TableHeader value={value} handleFilter={handleFilter} toggle={toggleAddUserDrawer} />
+          <DataGrid
+            autoHeight
+            rows={store.data}
+            columns={columns}
+            pageSize={pageSize}
+            disableSelectionOnClick
+            rowsPerPageOptions={[10, 25, 50]}
+            sx={{ '& .MuiDataGrid-columnHeaders': { borderRadius: 0 } }}
+            onPageSizeChange={newPageSize => setPageSize(newPageSize)}
+          />
+        </Card>
+      </Grid>
+
+      <AddUserDrawer open={addUserOpen} toggle={toggleAddUserDrawer} />
+      <Grid item xs={12}>
+        <TableServerSide title={'Pending For Approval'} />
+      </Grid>
+
+      <Grid item xs={12}>
+        <TableServerSidecopy title={'Rejected Profiles'}/>
+      </Grid>
+    </Grid>
+
+  )
+}
+
+export const getStaticProps = async () => {
+  const res = await axios.get('/cards/statistics')
+  const apiData = res.data
+
+  return {
+    props: {
+      apiData
+    }
+  }
+}
+
+export default UserList

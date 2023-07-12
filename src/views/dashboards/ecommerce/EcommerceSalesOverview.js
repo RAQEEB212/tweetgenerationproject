@@ -57,7 +57,7 @@ const EcommerceSalesOverview = () => {
     <Card>
       <CardHeader
         sx={{ pb: 3.25 }}
-        title='Sales Overview'
+        title='Subscribes'
         titleTypographyProps={{ variant: 'h6' }}
         action={
           <OptionsMenu

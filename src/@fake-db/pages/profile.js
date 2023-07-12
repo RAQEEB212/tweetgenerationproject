@@ -4,30 +4,37 @@ import mock from 'src/@fake-db/mock'
 const data = {
   profileHeader: {
     fullName: 'RAQEEB',
-    location: 'Vatican City',
-    joiningDate: 'April 2021',
-    designation: 'UX Designer',
+
+    // location: 'Sukkur City',
+    // joiningDate: 'April 2021',
+    // designation: 'UX Designer',
     profileImg: '/images/avatars/1.png',
-    designationIcon: 'mdi:fountain-pen-tip',
+
+    // designationIcon: 'mdi:fountain-pen-tip',
     coverImg: '/images/pages/profile-banner.png'
   },
   profile: {
     about: [
-      { property: 'Full Name', value: 'John Doe', icon: 'mdi:account-outline' },
-      { property: 'Status', value: 'active', icon: 'mdi:check' },
-      { property: 'Role', value: 'Developer', icon: 'mdi:star-outline' },
-      { property: 'Country', value: 'USA', icon: 'mdi:flag-outline' },
-      { property: 'Language', value: 'English', icon: 'mdi:translate' }
+      { property: 'Full Name', value: 'Abdul Raqeeb', icon: 'mdi:account-outline' },
+
+      // { property: 'Status', value: 'active', icon: 'mdi:check' },
+      // { property: 'Role', value: 'Developer', icon: 'mdi:star-outline' },
+      { property: 'Country', value: 'Sukkur', icon: 'mdi:flag-outline' },
+      { property: 'Language', value: 'English & Urdu', icon: 'mdi:translate' }
     ],
     contacts: [
-      { property: 'Contact', value: '(123) 456-7890', icon: 'mdi:phone-outline' },
-      { property: 'Skype', value: 'john.doe', icon: 'mdi:message-outline' },
-      { property: 'Email', value: 'john.doe@example.com', icon: 'mdi:email-outline' }
+      { property: 'Contact', value: '+92 313 1373109', icon: 'mdi:phone-outline' },
+
+      // { property: 'Skype', value: 'john.doe', icon: 'mdi:message-outline' },
+      { property: 'Email', value: 'info@fastechsystem.com', icon: 'mdi:email-outline' }
     ],
-    teams: [
-      { property: 'Backend Developer', value: '(126 Members)', icon: 'mdi:github', color: 'primary' },
-      { property: 'React Developer', value: '(98 Members)', icon: 'mdi:react', color: 'info' }
-    ],
+
+    // teams: [
+      // { property: 'Backend Developer', value: '(126 Members)', icon: 'mdi:github', color: 'primary' },
+      // { property: 'React Developer', value: '(98 Members)', icon: 'mdi:react', color: 'info' }
+    // ],
+
+
     overview: [
       { property: 'Task Compiled', value: '13.5k', icon: 'mdi:check' },
       { property: 'Connections', value: '897', icon: 'mdi:account-outline' },

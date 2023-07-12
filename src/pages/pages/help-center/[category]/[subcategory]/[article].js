@@ -2,17 +2,17 @@
 import axios from 'axios'
 
 // ** Demo Components Imports
-import HelpCenterArticle from 'src/views/pages/help-center/article'
+// import HelpCenterArticle from 'src/views/pages/help-center/article'
 
-const HelpCenterArticlePage = ({ apiData }) => {
-  return apiData ? (
-    <HelpCenterArticle
-      articles={apiData.articles}
-      activeArticle={apiData.activeArticle}
-      activeSubcategory={apiData.activeSubcategory}
-    />
-  ) : null
-}
+// const HelpCenterArticlePage = ({ apiData }) => {
+//   return apiData ? (
+//     // <HelpCenterArticle
+//     //   articles={apiData.articles}
+//     //   activeArticle={apiData.activeArticle}
+//     //   activeSubcategory={apiData.activeSubcategory}
+//     // />
+//   ) : null
+// }
 
 export const getStaticPaths = async () => {
   const res = await axios.get('/pages/help-center/article', {
@@ -49,4 +49,4 @@ export const getStaticProps = async ({ params }) => {
   }
 }
 
-export default HelpCenterArticlePage
+// export default HelpCenterArticlePage

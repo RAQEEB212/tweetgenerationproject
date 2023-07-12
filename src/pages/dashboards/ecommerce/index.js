@@ -26,9 +26,9 @@ const EcommerceDashboard = () => {
     <ApexChartWrapper>
       <KeenSliderWrapper>
         <Grid container spacing={6} className='match-height'>
-          <Grid item xs={12} md={6}>
-            <EcommerceSalesOverview />
-          </Grid>
+            <Grid item xs={12} md={6}>
+              <EcommerceSalesOverview />
+            </Grid>
           <Grid item xs={12} sm={6} md={3}>
             <CardStatisticsCharacter
               data={{
@@ -54,36 +54,38 @@ const EcommerceDashboard = () => {
               }}
             />
           </Grid>
-          <Grid item xs={12} md={6}>
-            <EcommerceWeeklySalesBg />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <EcommerceTotalVisits />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <EcommerceSalesThisMonth />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <EcommerceActivityTimeline />
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <EcommerceSalesOverviewWithTabs />
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <EcommerceImpressionsOrders />
-          </Grid>
-          <Grid item xs={12} md={5} sx={{ order: [2, 2, 1] }}>
-            <EcommerceMarketingSales />
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} sx={{ order: [1, 1, 2] }}>
-            <EcommerceLiveVisitors />
-          </Grid>
-          <Grid item xs={12} md={8} sx={{ order: 3 }}>
-            <EcommerceTable />
-          </Grid>
-          <Grid item xs={12} md={4} sx={{ order: 3 }}>
-            <EcommerceVisitsByDay />
-          </Grid>
+
+
+          {/*<Grid item xs={12} md={6}>*/}
+          {/*  <EcommerceWeeklySalesBg />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} sm={6} md={3}>*/}
+          {/*  <EcommerceTotalVisits />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} sm={6} md={3}>*/}
+          {/*  <EcommerceSalesThisMonth />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} md={6}>*/}
+          {/*  <EcommerceActivityTimeline />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} md={6}>*/}
+          {/*  <EcommerceSalesOverviewWithTabs />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} sm={6} md={3}>*/}
+          {/*  <EcommerceImpressionsOrders />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} md={5} sx={{ order: [2, 2, 1] }}>*/}
+          {/*  <EcommerceMarketingSales />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} sm={6} md={4} sx={{ order: [1, 1, 2] }}>*/}
+          {/*  <EcommerceLiveVisitors />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} md={8} sx={{ order: 3 }}>*/}
+          {/*  <EcommerceTable />*/}
+          {/*</Grid>*/}
+          {/*<Grid item xs={12} md={4} sx={{ order: 3 }}>*/}
+          {/*  <EcommerceVisitsByDay />*/}
+          {/*</Grid>*/}
         </Grid>
       </KeenSliderWrapper>
     </ApexChartWrapper>

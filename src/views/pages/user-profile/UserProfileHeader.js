@@ -71,30 +71,30 @@ const UserProfileHeader = () => {
             <Typography variant='h5' sx={{ mb: 4, fontSize: '1.375rem' }}>
               {data.fullName}
             </Typography>
-            <Box
-              sx={{
-                display: 'flex',
-                flexWrap: 'wrap',
-                justifyContent: ['center', 'flex-start']
-              }}
-            >
-              <Box sx={{ mr: 4, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'text.secondary' } }}>
-                <Icon icon={designationIcon} />
-                <Typography sx={{ color: 'text.secondary', fontWeight: 600 }}>{data.designation}</Typography>
-              </Box>
-              <Box sx={{ mr: 4, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'text.secondary' } }}>
-                <Icon icon='mdi:map-marker-outline' />
-                <Typography sx={{ color: 'text.secondary', fontWeight: 600 }}>{data.location}</Typography>
-              </Box>
-              <Box sx={{ display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'text.secondary' } }}>
-                <Icon icon='mdi:calendar-blank-outline' />
-                <Typography sx={{ color: 'text.secondary', fontWeight: 600 }}>Joined {data.joiningDate}</Typography>
-              </Box>
-            </Box>
+            {/*<Box*/}
+            {/*  sx={{*/}
+            {/*    display: 'flex',*/}
+            {/*    flexWrap: 'wrap',*/}
+            {/*    justifyContent: ['center', 'flex-start']*/}
+            {/*  }}*/}
+            {/*>*/}
+              {/*<Box sx={{ mr: 4, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'text.secondary' } }}>*/}
+              {/*  <Icon icon={designationIcon} />*/}
+              {/*  <Typography sx={{ color: 'text.secondary', fontWeight: 600 }}>{data.designation}</Typography>*/}
+              {/*</Box>*/}
+              {/*<Box sx={{ mr: 4, display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'text.secondary' } }}>*/}
+              {/*  <Icon icon='mdi:map-marker-outline' />*/}
+              {/*  <Typography sx={{ color: 'text.secondary', fontWeight: 600 }}>{data.location}</Typography>*/}
+              {/*</Box>*/}
+              {/*<Box sx={{ display: 'flex', alignItems: 'center', '& svg': { mr: 1, color: 'text.secondary' } }}>*/}
+              {/*  /!*<Icon icon='mdi:calendar-blank-outline' />*!/*/}
+              {/*  /!*<Typography sx={{ color: 'text.secondary', fontWeight: 600 }}>Joined {data.joiningDate}</Typography>*!/*/}
+              {/*</Box>*/}
+            {/*</Box>*/}
           </Box>
-          <Button variant='contained' startIcon={<Icon icon='mdi:account-check-outline' fontSize={20} />}>
-            Connected
-          </Button>
+          {/*<Button variant='contained' startIcon={<Icon icon='mdi:account-check-outline' fontSize={20} />}>*/}
+          {/*  Connected*/}
+          {/*</Button>*/}
         </Box>
       </CardContent>
     </Card>

@@ -90,4 +90,4 @@ const CardActionAll = () => {
   )
 }
 
-export default CardActionAll
+// export default CardActionAll

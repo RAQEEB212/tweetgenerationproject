@@ -1,20 +1,20 @@
 // ** MUI Imports
 import Grid from '@mui/material/Grid'
 
-// ** Demo Components Imports
-import CardFinanceApp from 'src/views/ui/cards/advanced/CardFinanceApp'
-import CardPlanUpgrade from 'src/views/ui/cards/advanced/CardPlanUpgrade'
-import CardTransactions from 'src/views/ui/cards/advanced/CardTransactions'
-import CardTotalEarnings from 'src/views/ui/cards/advanced/CardTotalEarings'
-import CardPaymentHistory from 'src/views/ui/cards/advanced/CardPaymentHistory'
-import CardMeetingSchedule from 'src/views/ui/cards/advanced/CardMeetingSchedule'
-import CardActivityTimeline from 'src/views/ui/cards/advanced/CardActivityTimeline'
-import CardSalesInCountries from 'src/views/ui/cards/advanced/CardSalesInCountries'
-import CardGeneralStatistics from 'src/views/ui/cards/advanced/CardGeneralStatistics'
-import CardProjectStatistics from 'src/views/ui/cards/advanced/CardProjectStatistics'
-import CardTopReferralSources from 'src/views/ui/cards/advanced/CardTopReferralSources'
-import CardSocialNetworkVisits from 'src/views/ui/cards/advanced/CardSocialNetworkVisits'
-import CardSubscribersByCountries from 'src/views/ui/cards/advanced/CardSubscribersByCountries'
+// // ** Demo Components Imports
+// // import CardFinanceApp from 'src/views/ui/cards/advanced/CardFinanceApp'
+// import CardPlanUpgrade from 'src/views/ui/cards/advanced/CardPlanUpgrade'
+// import CardTransactions from 'src/views/ui/cards/advanced/CardTransactions'
+// import CardTotalEarnings from 'src/views/ui/cards/advanced/CardTotalEarings'
+// import CardPaymentHistory from 'src/views/ui/cards/advanced/CardPaymentHistory'
+// import CardMeetingSchedule from 'src/views/ui/cards/advanced/CardMeetingSchedule'
+// // import CardActivityTimeline from 'src/views/ui/cards/advanced/CardActivityTimeline'
+// import CardSalesInCountries from 'src/views/ui/cards/advanced/CardSalesInCountries'
+// import CardGeneralStatistics from 'src/views/ui/cards/advanced/CardGeneralStatistics'
+// import CardProjectStatistics from 'src/views/ui/cards/advanced/CardProjectStatistics'
+// import CardTopReferralSources from 'src/views/ui/cards/advanced/CardTopReferralSources'
+// import CardSocialNetworkVisits from 'src/views/ui/cards/advanced/CardSocialNetworkVisits'
+// import CardSubscribersByCountries from 'src/views/ui/cards/advanced/CardSubscribersByCountries'
 
 const CardsAdvanced = () => {
   return (
@@ -53,7 +53,7 @@ const CardsAdvanced = () => {
         <CardSubscribersByCountries />
       </Grid>
       <Grid item xs={12} md={6} lg={8}>
-        <CardActivityTimeline />
+        {/*<CardActivityTimeline />*/}
       </Grid>
       <Grid item xs={12} md={6} lg={4}>
         <CardFinanceApp />
@@ -62,4 +62,4 @@ const CardsAdvanced = () => {
   )
 }
 
-export default CardsAdvanced
+// export default CardsAdvanced

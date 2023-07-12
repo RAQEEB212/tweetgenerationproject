@@ -119,4 +119,4 @@ const CardSocialNetworkVisits = () => {
   )
 }
 
-export default CardSocialNetworkVisits
+// export default CardSocialNetworkVisits
