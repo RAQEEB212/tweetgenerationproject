@@ -9,6 +9,7 @@ import CardStatisticsVertical from 'src/@core/components/card-statistics/card-st
 import CardTwitter from "../../views/ui/cards/basic/CardTwitter";
 import Twittercard from "../apps/user-base-see";
 import DashBoardTwittercard from "./cardviewfordashboard";
+import DashboardRightSideBar from "./dashboardrightsidebar";
 
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
@@ -163,12 +164,15 @@ const CrmDashboard = () => {
 
         {/*this is imported from user base see list of tweets ,this is same  page  as  in user base see list of tweet*/}
 
-        <Grid item xs={12} sm={6} md={12}>
+        <Grid item xs={12} sm={12} md={7} lg={7}>
           {/*<Twittercard />*/}
-          <div style={{ display: 'grid', justifyContent: 'center', alignItems: 'center',paddingLeft: '200px' }}>
             <DashBoardTwittercard />
-          </div>
         </Grid>
+        <Grid item xs={12} sm={12} md={5} lg={5}>
+          <DashboardRightSideBar />
+
+        </Grid>
+
         {/*<Grid key={idx} item xs={12} sm={6} md={4}>*/}
         {/*  <CardTwitter />*/}
         {/*</Grid>*/}

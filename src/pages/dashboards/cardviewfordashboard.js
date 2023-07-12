@@ -9,7 +9,7 @@ const DashBoardTwittercard = () => {
       {
         [1,2,3,4,5,6,7,8].map((itm,idx)=>{
           return (
-            <Grid key={idx} item xs={12} sm={6} md={7}>
+            <Grid key={idx} item xs={12} sm={12} md={12}>
               <CardTwitter />
             </Grid>
           );
