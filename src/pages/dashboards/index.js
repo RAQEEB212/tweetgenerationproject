@@ -6,8 +6,8 @@ import Icon from 'src/@core/components/icon'
 
 // ** Custom Component Import
 import CardStatisticsVertical from 'src/@core/components/card-statistics/card-stats-vertical'
-
-import Twittercard from "../../apps/managetweet";
+import CardTwitter from "../../views/ui/cards/basic/CardTwitter";
+import Twittercard from "../apps/user-base-see";
 
 // ** Styled Component Import
 import ApexChartWrapper from 'src/@core/styles/libs/react-apexcharts'
@@ -61,7 +61,7 @@ const CrmDashboard = () => {
             stats='143.4k'
             color='success'
             trendNumber='+38%'
-            title='Total Sales'
+            title='tweets'
             chipText='Last Six Month'
             icon={<Icon icon='mdi:currency-usd' />}
           />
@@ -118,9 +118,22 @@ const CrmDashboard = () => {
         {/*</Grid>*/}
 
 
+
+        {/*this is  seperate one card*/}
+
+        {/*<Grid item xs={12} sm={6} md={4}>*/}
+        {/*<CardTwitter />*/}
+        {/*</Grid>*/}
+
+
+
+        {/*this is imported from user base see list of tweets ,this is same  page  as  in user base see list of tweet*/}
         <Grid item xs={12} sm={6} md={20}>
-        <Twittercard />
+          <Twittercard />
         </Grid>
+        {/*<Grid key={idx} item xs={12} sm={6} md={4}>*/}
+        {/*  <CardTwitter />*/}
+        {/*</Grid>*/}
 
 
       </Grid>

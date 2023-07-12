@@ -42,7 +42,7 @@ import ClickAwayListener from "@mui/material/ClickAwayListener";
 import MenuList from "@mui/material/MenuList";
 import MenuItem from "@mui/material/MenuItem";
 
-const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge']
+const options = ['Schedule Post', 'Share Now', 'Add To Queue']
 
 const Editors = () => {
   const [value, setValue] = useState(EditorState.createEmpty())

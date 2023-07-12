@@ -1,63 +1,44 @@
 const navigation = () => {
   return [
     {
-      title: 'fastech',
+      title: 'TweetAutomtion',
       icon: 'mdi:home-outline',
       badgeContent: 'new',
       badgeColor: 'error',
       children: [
-        // {
-        //   title: 'CRM',
-        //   path: '/dashboards/crm'
-        // },
-        // {
-        //   title: 'Analytics',
-        //   path: '/dashboards/analytics'
-        // },
-        // {
-        //   title: 'eCommerce',
-        //   path: '/dashboards/ecommerce'
-        // }
       ]
     },
     {
-      sectionTitle: 'Apps & Pages'
-    },
-    {
-      title: 'Payment Manage',
-      icon: 'mdi:file-document-outline',
-      path: '/apps/invoice/list',
-    },
-    {
-      title: 'Tweet manage',
+      title: 'Tweet Management',
       icon: 'mdi-twitter',
-      path: '/apps/calendar',
+      path: '/apps/tweet-manage',
     },
     {
-      title: 'Create Tweet',
-      icon: 'mdi-twitter',
-      path: '/forms/form-elements/editor',
+      title: 'User Management',
+      icon: 'fa6-solid:users',
+      path: '/apps/user-base-see'
     },
     {
-      title: 'User Base See ',
-      icon: 'mdi:email-outline',
-      path: '/apps/managetweet'
-    },
-
-    {
-      title: 'Profile Manage ',
-      icon: 'mdi:message-outline',
-      path: '/apps/profile-manage'
+      title: 'Payments',
+      icon: 'mdi:payment-clock',
+      path: '/apps/payment-manage',
     },
     {
-      title: 'Create Packages',
+      title: 'Subscriptions',
       icon: 'mdi:account-cash-outline',
-      path: '/apps/packages'
-
-
-
-        }
-      ]
+      path: '/apps/create-packages'
+    },
+    {
+      title: 'Profile',
+      icon: 'mdi:account-cash-outline',
+      path: '/apps/user/view/overview'
+    },
+    {
+      title: 'Logout',
+      icon: 'mdi:account-cash-outline',
+      path: '/logout'
     }
+  ]
+}
 
 export default navigation

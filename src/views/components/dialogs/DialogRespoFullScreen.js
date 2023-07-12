@@ -1,5 +1,5 @@
 // ** React Imports
-import { Fragment, useState } from 'react'
+import {Fragment, useEffect, useRef, useState} from 'react'
 
 // ** MUI Imports
 import Button from '@mui/material/Button'
@@ -10,6 +10,30 @@ import useMediaQuery from '@mui/material/useMediaQuery'
 import DialogActions from '@mui/material/DialogActions'
 import DialogContent from '@mui/material/DialogContent'
 import DialogContentText from '@mui/material/DialogContentText'
+import Grid from "@mui/material/Grid";
+import PageHeader from "../../../@core/components/page-header";
+import Typography from "@mui/material/Typography";
+import draftToHtml from "draftjs-to-html";
+import {convertToRaw, EditorState} from "draft-js";
+import CardSnippet from "../../../@core/components/card-snippet";
+import ReactDraftWysiwyg from "../../../@core/components/react-draft-wysiwyg";
+import ButtonGroup from "@mui/material/ButtonGroup";
+import Icon from "../../../@core/components/icon";
+import Popper from "@mui/material/Popper";
+import Grow from "@mui/material/Grow";
+import Paper from "@mui/material/Paper";
+import ClickAwayListener from "@mui/material/ClickAwayListener";
+import MenuList from "@mui/material/MenuList";
+import MenuItem from "@mui/material/MenuItem";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Box from "@mui/material/Box";
+import Avatar from "@mui/material/Avatar";
+import {EditorWrapper} from "../../../@core/styles/libs/react-draft-wysiwyg";
+import Editors from "../../../pages/forms/form-elements/editor";
+
+const options = ['Create a merge commit', 'Squash and merge', 'Rebase and merge']
+
 
 const DialogRespoFullScreen = () => {
   // ** State
@@ -17,29 +41,30 @@ const DialogRespoFullScreen = () => {
 
   // ** Hooks
   const theme = useTheme()
-  const fullScreen = useMediaQuery(theme.breakpoints.down('sm'))
   const handleClickOpen = () => setOpen(true)
-  const handleClose = () => setOpen(false)
+
+
+  const handleClose = () => {
+    setOpen(false)
+  }
+
+  const fullScreen = useMediaQuery(theme.breakpoints.down('md'))
 
   return (
     <Fragment>
-      <Button variant='outlined' onClick={handleClickOpen}>
-        Open responsive dialog
+      <Button variant='contained' onClick={handleClickOpen}>
+        Create Tweet
       </Button>
-      <Dialog fullScreen={fullScreen} open={open} onClose={handleClose} aria-labelledby='responsive-dialog-title'>
-        <DialogTitle id='responsive-dialog-title'>Use Google's location service?</DialogTitle>
-        <DialogContent>
-          <DialogContentText>
-            Let Google help apps determine location. This means sending anonymous location data to Google, even when no
-            apps are running.
+      <Dialog maxWidth={'md'} open={open} onClose={handleClose} aria-labelledby='responsive-dialog-title'>
+        <DialogContent >
+          <DialogContentText  sx={{ width: 1 }} >
+            <Editors sx={{ width: '75%' }} />
           </DialogContentText>
         </DialogContent>
-        <DialogActions className='dialog-actions-dense'>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose}>Agree</Button>
-        </DialogActions>
+
       </Dialog>
     </Fragment>
+
   )
 }
 

@@ -185,7 +185,7 @@ const VerticalNavHeader = props => {
           </svg>
           <HeaderTitle variant='h6' sx={{ ...menuCollapsedStyles, ...(navCollapsed && !navHover ? {} : { ml: 2 }) }}>
             {/*{themeConfig.templateName}*/}
-            <span>fasTech</span>
+            <span>Let's Tweet</span>
           </HeaderTitle>
         </StyledLink>
       )}

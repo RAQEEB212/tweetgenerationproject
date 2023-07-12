@@ -4,6 +4,10 @@ import Drawer from '@mui/material/Drawer'
 import Checkbox from '@mui/material/Checkbox'
 import Typography from '@mui/material/Typography'
 import FormControlLabel from '@mui/material/FormControlLabel'
+import Grid from "@mui/material/Grid";
+import CardSnippet from "../../../@core/components/card-snippet";
+import * as source from "../../components/dialogs/DialogSourceCode";
+import DialogRespoFullScreen from "../../components/dialogs/DialogRespoFullScreen";
 
 const SidebarLeft = props => {
   const {
@@ -23,21 +27,21 @@ const SidebarLeft = props => {
 
   const renderFilters = colorsArr.length
     ? colorsArr.map(([key, value]) => {
-        return (
-          <FormControlLabel
-            key={key}
-            label={key}
-            sx={{ mb: 0.5 }}
-            control={
-              <Checkbox
-                color={value}
-                checked={store.selectedCalendars.includes(key)}
-                onChange={() => dispatch(handleCalendarsUpdate(key))}
-              />
-            }
-          />
-        )
-      })
+      return (
+        <FormControlLabel
+          key={key}
+          label={key}
+          sx={{ mb: 0.5 }}
+          control={
+            <Checkbox
+              color={value}
+              checked={store.selectedCalendars.includes(key)}
+              onChange={() => dispatch(handleCalendarsUpdate(key))}
+            />
+          }
+        />
+      )
+    })
     : null
 
   const handleSidebarToggleSidebar = () => {
@@ -77,9 +81,23 @@ const SidebarLeft = props => {
           }
         }}
       >
-        <Button fullWidth variant='contained' onClick={handleSidebarToggleSidebar}>
-          create tweet
-        </Button>
+        <DialogRespoFullScreen />
+        {/*{/<Button fullWidth variant='contained' onClick={handleSidebarToggleSidebar}>/}*/}
+        {/*  create tweet*/}
+
+        {/*{/</Button>/}*/}
+
+        {/*{/<CardSnippet/}*/}
+        {/*  title='Create Tweet'*/}
+        {/*  code={{*/}
+        {/*    tsx: null,*/}
+
+        {/*  }}*/}
+        {/*{/>/}*/}
+
+        {/*  <DialogRespoFullScreen />*/}
+        {/*{/</CardSnippet>/}*/}
+
 
         <Typography variant='body2' sx={{ mt: 7, mb: 2.5, textTransform: 'uppercase' }}>
           tweet category
