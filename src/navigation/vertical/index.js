@@ -8,6 +8,11 @@ const navigation = () => {
       children: [
       ]
     },
+      {
+          title: 'Connect Twitter',
+          icon: 'mdi:repeat-variant',
+          path: '/connection',
+      },
     {
       title: 'Tweet Management',
       icon: 'mdi-twitter',
