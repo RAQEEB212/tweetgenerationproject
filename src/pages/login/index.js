@@ -1,20 +1,7 @@
-// ** React Imports
+
 import { useState } from 'react'
-
-/////////imported
-import LoginGoogle from './googlelogin'
-
-import { useEffect } from 'react'
-// import { gapi} from "gapi-script";
-
-
-// const clientId = "573694337447-kfqhh53vknfg2n7apfugcatb1sc43g0c.apps.googleusercontent.com";
-
-// ** Next Imports
 import Link from 'next/link'
 
-// ** MUI Components
-import Alert from '@mui/material/Alert'
 import Button from '@mui/material/Button'
 import Divider from '@mui/material/Divider'
 import Checkbox from '@mui/material/Checkbox'
@@ -53,6 +40,8 @@ import BlankLayout from 'src/@core/layouts/BlankLayout'
 
 // ** Demo Imports
 import FooterIllustrationsV2 from 'src/views/pages/auth/FooterIllustrationsV2'
+import Alert from "@mui/material/Alert";
+import {useRouter} from "next/router";
 
 // ** Styled Components
 const LoginIllustrationWrapper = styled(Box)(({ theme }) => ({
@@ -117,8 +106,7 @@ const defaultValues = {
 const LoginPage = () => {
   const [rememberMe, setRememberMe] = useState(true)
   const [showPassword, setShowPassword] = useState(false)
-
-  // ** Hooks
+  const router = useRouter()
   const auth = useAuth()
   const theme = useTheme()
   const bgColors = useBgColor()
@@ -141,12 +129,12 @@ const LoginPage = () => {
 
   const onSubmit = data => {
     const { email, password } = data
-    auth.login({ email, password, rememberMe }, () => {
-      setError('email', {
-        type: 'manual',
-        message: 'Email or Password is invalid'
-      })
-    })
+
+    localStorage.setItem('userData', JSON.stringify({
+      email : email,
+      password : password
+    }))
+    router.push('/twitterapi')
   }
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
@@ -195,15 +183,7 @@ const LoginPage = () => {
               <TypographyStyled variant='h5'>{`Welcome to ${themeConfig.templateName}! 👋🏻`}</TypographyStyled>
               <Typography variant='body2'>Please sign-in to your account and start the adventure</Typography>
             </Box>
-            {/*<Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>*/}
-            {/*  <Typography variant='caption' sx={{ mb: 2, display: 'block', color: 'primary.main' }}>*/}
-            {/*    Admin: <strong>admin@materialize.com</strong> / Pass: <strong>admin</strong>*/}
-            {/*  </Typography>*/}
-            {/*  <Typography variant='caption' sx={{ display: 'block', color: 'primary.main' }}>*/}
-            {/*    Client: <strong>client@materialize.com</strong> / Pass: <strong>client</strong>*/}
-            {/*  </Typography>*/}
-            {/*</Alert>*/}
-            <form noValidate autoComplete='off' onSubmit={handleSubmit(onSubmit)}>
+            <form noValidate autoComplete='off'>
               <FormControl fullWidth sx={{ mb: 4 }}>
                 <Controller
                   name='email'
@@ -276,7 +256,7 @@ const LoginPage = () => {
                   Forgot Password?
                 </Typography>
               </Box>
-              <Button fullWidth size='large' type='submit' variant='contained' sx={{ mb: 7 }}>
+              <Button fullWidth size='large' variant='contained' onClick={(e)=>onSubmit(e)} sx={{ mb: 7 }}>
                 Login
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>

@@ -9,6 +9,7 @@ import axios from 'axios'
 
 // ** Config
 import authConfig from 'src/configs/auth'
+import ToastCustomPosition from "../views/components/toast/ToastCustomPosition";
 
 // ** Defaults
 const defaultProvider = {
@@ -34,8 +35,7 @@ const AuthProvider = ({ children }) => {
       const storedToken = window.localStorage.getItem(authConfig.storageTokenKeyName)
       if (storedToken) {
         setLoading(true)
-        await axios
-          .get(authConfig.meEndpoint, {
+        await axios.get(authConfig.meEndpoint, {
             headers: {
               Authorization: storedToken
             }
@@ -51,7 +51,7 @@ const AuthProvider = ({ children }) => {
             setUser(null)
             setLoading(false)
             if (authConfig.onTokenExpiration === 'logout' && !router.pathname.includes('login')) {
-              router.replace('/login')
+                router.replace('/login')
             }
           })
       } else {
@@ -63,20 +63,19 @@ const AuthProvider = ({ children }) => {
   }, [])
 
   const handleLogin = (params, errorCallback) => {
-    axios
-      .post(authConfig.loginEndpoint, params)
+    axios.post(authConfig.loginEndpoint, params)
       .then(async response => {
         params.rememberMe
           ? window.localStorage.setItem(authConfig.storageTokenKeyName, response.data.accessToken)
           : null
         const returnUrl = router.query.returnUrl
         setUser({ ...response.data.userData })
-        params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
+          params.rememberMe ? window.localStorage.setItem('userData', JSON.stringify(response.data.userData)) : null
         const redirectURL = returnUrl && returnUrl !== '/' ? returnUrl : '/'
-        router.replace(redirectURL)
-      })
-      .catch(err => {
-        if (errorCallback) errorCallback(err)
+          router.replace(redirectURL)
+            .catch(err => {
+              if (errorCallback) errorCallback(err)
+            })
       })
   }
 
@@ -94,7 +93,8 @@ const AuthProvider = ({ children }) => {
         if (res.data.error) {
           if (errorCallback) errorCallback(res.data.error)
         } else {
-          handleLogin({ email: params.email, password: params.password })
+          router.push('/login')
+
         }
       })
       .catch(err => (errorCallback ? errorCallback(err) : null))
