@@ -105,9 +105,9 @@ const data = [
   }
 ]
 
-const CardTransactions = () => {
+const DashboardRightSideBar = () => {
   return (
-    <Card>
+    <Card style={{height :'auto'}}>
       <CardHeader
         title='Transactions'
         action={
@@ -161,4 +161,4 @@ const CardTransactions = () => {
   )
 }
 
-export default CardTransactions
+export default DashboardRightSideBar
